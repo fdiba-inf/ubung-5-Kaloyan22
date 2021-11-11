@@ -19,7 +19,20 @@ public class UniqueNumbers {
 
         int[] uniqueNumbers = new int[numbers.length];
         // Find unique numbers in numbers
-
+        int br = 0;
+        for(int i = 0; i < numbers.length; i++) {
+          boolean dup = false;
+          for(int j = 0; j < uniqueNumbers.length; j++) {
+            if(uniqueNumbers[j] == numbers[i]) {
+              dup = true;
+            }
+          }
+          if(!dup) {
+            uniqueNumbers[br] = numbers[i];
+            dup = false;
+            br++;
+          }
+        }
         String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
         System.out.println("Unique numbers: " + uniqueNumbersAsString);
     }
